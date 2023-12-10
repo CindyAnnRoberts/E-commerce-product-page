@@ -1,0 +1,387 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* End Eric Myers CSS Reset */
+
+:root {
+  --font-color-darkGrey: #1d2026;
+  --font-color-mediumGray: #69707d;
+  --light-Gray: #e4e9f2;
+  --orange: #ff7e1b;
+}
+body {
+  font-family: "Kumbh Sans", sans-serif;
+}
+main {
+  border: 1px solid purple;
+}
+header {
+  padding: 24px 24px 29px;
+}
+#hamburgerIcon {
+  margin-right: 16px;
+}
+#iconClose {
+  display: none; /* Hide iconClose by default */
+}
+/* Style for mobile navigation links */
+#topNavLinks {
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(-100%);
+  opacity: 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  padding-left: 25px;
+  padding-top: 53.78px;
+
+  height: 100vh;
+  width: 225px;
+  background-color: #fff;
+  z-index: 1;
+}
+
+/* Style for the 'show-links' class */
+#topNavLinks.show-links {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#topNav li {
+  padding-bottom: 20px;
+}
+
+#headerCart {
+  fill: var(--font-color-mediumGray);
+}
+#avatar {
+  height: 24px;
+  width: auto;
+}
+#avatarCartContainer {
+  width: 68px;
+  border: 1px solid purple;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 1.75rem;
+  color: var(--font-color-darkGrey);
+  font-weight: 700;
+  line-height: 32px;
+  width: 327px;
+}
+h2 {
+  color: var(--orange);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.85px;
+  font-size: 0.75rem;
+}
+img {
+  max-width: 100%;
+}
+.thumbnail {
+  display: none;
+}
+button {
+  color: var(--orange);
+}
+
+/* Media Query */
+@media (min-width: 968px) {
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    border: 1px solid hotpink;
+  }
+  header {
+    border-bottom: 1px solid var(--light-Gray);
+    padding-bottom: 34px;
+    max-width: 1110px;
+  }
+  #topNav {
+    display: flex;
+    align-items: center;
+    padding-top: 28px;
+    justify-content: space-between;
+    border: 1px solid coral;
+  }
+  #topNav li {
+    padding-bottom: 0;
+  }
+  #hamburgerIcon,
+  #iconClose {
+    display: none; /* Hide both icons on large screens */
+  }
+  #avatarCartContainer {
+    align-items: center;
+    width: 118px;
+    border: 1px solid hotpink;
+  }
+
+  #topNavLinks {
+    opacity: 1; /* Make topNavLinks visible */
+    transition: none;
+    transform: translateX(0);
+    position: static;
+    top: 0;
+    left: 0;
+    padding-left: 0;
+    padding-top: 0;
+    height: auto;
+    width: auto;
+    background-color: #fff;
+    z-index: 1;
+    display: flex;
+    gap: 33px;
+    color: var(--font-color-mediumGray);
+    border: 1px solid lime;
+  }
+
+  /* Style for the 'show-links' class */
+  #topNavLinks.show-links {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  #logo {
+    margin-right: 56.5px;
+  }
+  #avatar {
+    height: 50px;
+    width: 50px;
+  }
+
+  #topNavLinks {
+    position: static;
+    display: flex;
+    gap: 33px;
+    color: var(--font-color-mediumGray);
+    flex: 2;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+    width: 445px;
+    line-height: 48px;
+    margin-bottom: 34px;
+  }
+
+  .lightbox-content {
+    height: 563px;
+  }
+  h2 {
+    letter-spacing: 2px;
+    font-size: 1.0833rem;
+    padding-bottom: 24px;
+  }
+
+  article p {
+    color: var(--font-color-mediumGray);
+    line-height: 26px;
+  }
+  #btnCartIcon {
+    fill: #fff;
+    margin-right: 15.54px;
+    cursor: pointer;
+    border: 1px solid lime;
+  }
+  .gallery {
+    display: flex;
+    gap: 31px;
+    width: 445px;
+    border: 1px solid lime;
+  }
+
+  #lightboxImage {
+    vertical-align: bottom;
+    border-radius: 15px;
+    height: 445px;
+    width: auto;
+    margin-bottom: 30px;
+  }
+  .thumbnail {
+    cursor: pointer;
+    position: relative;
+    opacity: 1; /* Initial opacity for regular appearance */
+    transition: opacity 0.3s ease; /* Add a smooth transition effect */
+  }
+  .thumbnail img {
+    height: 88px;
+    width: auto;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  /* Add a class for the grayed-out styling */
+  .thumbnail.initial-selected::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray; /* Adjust the color*/
+    opacity: 0.5; /* Adjust the opacity */
+    pointer-events: none; /* Ensure clicks pass through the overlay to the actual thumbnail */
+  }
+  .thumbnail.selected {
+    opacity: 0.5; /* Reduced opacity for the selected thumbnail */
+  }
+  button[type="submit"] {
+    padding: 19px 76px;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--orange);
+  }
+  article {
+    display: flex;
+    gap: 125px;
+  }
+  .text-content {
+    margin-top: 62px;
+  }
+  .text-content p:first-of-type {
+    border: 1px solid hotpink;
+    margin-bottom: 22px;
+    max-width: 536px;
+    padding-right: 45px;
+  }
+  header,
+  article,
+  footer {
+    max-width: 1110px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
