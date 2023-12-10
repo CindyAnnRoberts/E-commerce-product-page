@@ -1,7 +1,10 @@
 function toggleNav() {
     // Get the hamburgerIcon, iconClose, and topNavLinks elements
     const hamburgerIcon = document.getElementById('hamburgerIcon');
+  
     const iconClose = document.getElementById('iconClose');
+    iconClose.addEventListener('click', toggleNav);
+
     const topNavLinks = document.getElementById('topNavLinks');
 
     // Toggle a class (e.g., 'show-links') to control visibility
@@ -11,8 +14,6 @@ function toggleNav() {
     hamburgerIcon.style.display = topNavLinks.classList.contains('show-links') ? 'none' : 'block';
     iconClose.style.display = topNavLinks.classList.contains('show-links') ? 'block' : 'none';
 }
-
-// Add this to your existing JavaScript
 
 function toggleThumbnailsVisibility() {
     const thumbnails = document.querySelectorAll('.thumbnail');
@@ -31,8 +32,8 @@ window.addEventListener('resize', toggleThumbnailsVisibility);
 
 
 function openLightbox(imageSrc, thumbnailSrc, element) {
-    var lightbox = document.getElementById('lightbox');
-    var lightboxImage = document.getElementById('lightboxImage');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
 
     lightboxImage.src = imageSrc;
     lightboxImage.alt = thumbnailSrc;
