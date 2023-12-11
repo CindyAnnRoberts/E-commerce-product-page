@@ -46,7 +46,8 @@
 
                         <!-- Header Avatar and Cart Icon -->
                         <div id="avatarCartContainer">
-                            <span id="cart-count">0</span>
+                            <span id="cart-count" onclick="showCart()">0</span>
+                            <!-- <span id="hideCart" onclick="hideCart()">x</span> -->
 
                             <svg id="cart-icon" width="22" height="20" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -117,7 +118,10 @@
 
 
                     <div id="cart">
-                        <h3>Cart</h3>
+                        <div class="hideCartBtn">
+                            <h3>Cart</h3>
+                            <span id="hideCart" onclick="hideCart()">X</span>
+                        </div>
 
                         <img src="image/image-product-1-thumbnail.jpg" alt="" height="50" width="50">
                         <!-- Add a close button to the cart -->

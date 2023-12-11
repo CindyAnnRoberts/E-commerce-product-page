@@ -89,6 +89,16 @@ function updateCartCountDisplay() {
         cartCountElement.style.display = 'block'; 
     }
 }
+// Function to show the cart
+function showCart() {
+    const cartElement = document.getElementById('cart');
+    cartElement.style.display = 'block';
+}
+// Function to hide the cart (you may want to customize this based on your requirements)
+function hideCart() {
+    const cartElement = document.getElementById('cart');
+    cartElement.style.display = 'none';
+}
 
 
 // Function to clear the entire cart

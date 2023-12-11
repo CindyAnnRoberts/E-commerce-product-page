@@ -233,13 +233,27 @@ button {
   display: inline-block;
 }
 
-/* #cart {
-  display: none;
-} */
+#cart {
+  /* display: none; */
+  position: absolute;
+  top: 94px;
+}
+.hideCartBtn {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 24px 0;
+}
 #cart-count {
   display: none;
 }
 
+#cart-count:hover + #cart {
+  display: block; /* Show the cart when #cart-count is hovered */
+}
+#hideCart {
+  color: hotpink;
+  cursor: pointer;
+}
 #cart h3 {
   font-weight: 700;
   border-bottom: 1px solid var(--light-Gray);
