@@ -1,16 +1,11 @@
 function toggleNav() {
-    // Get the hamburgerIcon, iconClose, and topNavLinks elements
     const hamburgerIcon = document.getElementById('hamburgerIcon');
-  
     const iconClose = document.getElementById('iconClose');
-    iconClose.addEventListener('click', toggleNav);
-
     const topNavLinks = document.getElementById('topNavLinks');
 
-    // Toggle a class (e.g., 'show-links') to control visibility
-    topNavLinks.classList.toggle('show-links');
+    iconClose.addEventListener('click', toggleNav);
 
-    // Toggle visibility of icons based on the 'show-links' class
+    topNavLinks.classList.toggle('show-links');
     hamburgerIcon.style.display = topNavLinks.classList.contains('show-links') ? 'none' : 'block';
     iconClose.style.display = topNavLinks.classList.contains('show-links') ? 'block' : 'none';
 }
@@ -24,13 +19,6 @@ function toggleThumbnailsVisibility() {
     });
 }
 
-// Call the function initially and attach it to the window resize event
-toggleThumbnailsVisibility();
-window.addEventListener('resize', toggleThumbnailsVisibility);
-
-
-
-
 function openLightbox(imageSrc, thumbnailSrc, element) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -38,42 +26,61 @@ function openLightbox(imageSrc, thumbnailSrc, element) {
     lightboxImage.src = imageSrc;
     lightboxImage.alt = thumbnailSrc;
 
-    // Dimensions (height and width) for the lightbox image
     lightboxImage.style.height = '445px';
-    lightboxImage.style.width = 'auto';  
+    lightboxImage.style.width = 'auto';
 
     lightbox.style.display = 'flex';
 
-    // Remove the "selected" class from all thumbnails
-    var thumbnails = document.querySelectorAll('.thumbnail');
-    thumbnails.forEach(function (thumbnail) {
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach(thumbnail => {
         thumbnail.classList.remove('selected', 'initial-selected');
     });
 
-    // Add the "selected" class to the clicked thumbnail
     element.classList.add('selected');
 }
 
 function closeLightbox() {
-    var lightbox = document.getElementById('lightbox');
+    const lightbox = document.getElementById('lightbox');
     lightbox.style.display = 'none';
 }
 
 
-function incrementQuantity() {
-    var quantityInput = document.getElementById('quantity');
-    quantityInput.value = parseInt(quantityInput.value) + 1;
-}
+ // Initial cart count and quantity
+ let cartCount = 0;
+ let quantity = 1;
 
-function decrementQuantity() {
-    var quantityInput = document.getElementById('quantity');
-    var currentValue = parseInt(quantityInput.value);
-    if (currentValue > 0) {
-        quantityInput.value = currentValue - 1;
-    }
-}
+ // Function to increase the quantity
+ function incrementQuantity() {
+     quantity++;
+     updateQuantityDisplay( );
+ }
 
+ // Function to decrease the quantity (with a minimum quantity of 1)
+ function decrementQuantity() {
+     if (quantity > 1) {
+         quantity--;
+         updateQuantityDisplay( );
+     }
+ }
 
+ // Function to update the quantity display
+ function updateQuantityDisplay() {
+     document.getElementById('quantity').innerText = quantity;
+ }
 
+ 
+ function addToCart() {
+  
+    // Update the cart count based on the current quantity
+    cartCount += quantity;
 
+    // Update the cart icon or count display
+    document.getElementById('cart-count').innerText = cartCount;
 
+    // Update the cart icon 
+    document.getElementById('cart-icon').style.color = 'red';
+
+    // Reset the quantity to 1 for the next product
+    quantity = 1;
+    updateQuantityDisplay();
+  }

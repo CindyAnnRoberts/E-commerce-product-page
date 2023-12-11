@@ -177,9 +177,84 @@ header {
 #topNav li {
   padding-bottom: 20px;
 }
-
+#cart-count {
+  background-color: var(--orange);
+  color: #fff;
+  height: 13px;
+  width: 19px;
+  border-radius: 6.5px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.625rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  left: 9px;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
 #headerCart {
   fill: var(--font-color-mediumGray);
+}
+
+#cart {
+  width: 360px;
+  height: 256px;
+  border: 1px solid hotpink;
+  position: absolute;
+  top: 94px;
+  right: 89px;
+  background-color: #ffffff;
+}
+.item-name,
+.multiply,
+.item-quantity {
+  color: var(--font-color-mediumGray);
+  font-weight: 400;
+}
+.item-cost {
+  font-weight: 700;
+  color: var(--font-color-darkGrey);
+  display: inline-block;
+  margin-left: 6px;
+}
+#cart img {
+  border-radius: 4px;
+  object-fit: cover;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+#cart.active {
+  visibility: visible;
+}
+
+#cart h3 {
+  font-weight: 700;
+  border-bottom: 1px solid var(--light-Gray);
+  color: var(--font-color-darkGrey);
+  padding-bottom: 23px;
+  margin-bottom: 24px;
+}
+#cart li {
+  color: var(--font-color-mediumGray);
+}
+.material-symbols-outlined {
+  color: var(--font-color-mediumGray);
+  cursor: pointer;
+}
+#checkout {
+  width: 312px;
+  height: 56px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: var(--orange);
+  border: none;
 }
 #avatar {
   height: 24px;
@@ -190,6 +265,8 @@ header {
   border: 1px solid purple;
   display: flex;
   justify-content: space-between;
+
+  position: relative;
 }
 
 h1 {
@@ -209,15 +286,21 @@ h2 {
 img {
   max-width: 100%;
 }
-.thumbnail {
+/* .thumbnail {
   display: none;
+} */
+.thumbnail {
+  cursor: pointer;
+  position: relative;
+  opacity: 1; /* Initial opacity for regular appearance */
+  transition: opacity 0.3s ease;
 }
 button {
   color: var(--orange);
 }
 
 /* Media Query */
-@media (min-width: 868px) {
+@media (min-width: 768px) {
   .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -262,6 +345,7 @@ button {
     background-color: #fff;
     z-index: 1;
     display: flex;
+    flex: 2;
     gap: 33px;
     color: var(--font-color-mediumGray);
     border: 1px solid lime;
@@ -278,14 +362,6 @@ button {
   #avatar {
     height: 50px;
     width: 50px;
-  }
-
-  #topNavLinks {
-    position: static;
-    display: flex;
-    gap: 33px;
-    color: var(--font-color-mediumGray);
-    flex: 2;
   }
 
   h1 {
@@ -345,10 +421,10 @@ button {
     grid-column: 1/2;
     grid-row: 2/-1;
   }
-  .quantityAndSubmit {
+  .quantityWrapper {
     margin-top: 32px;
   }
-  .quantity {
+  .changeQuantity {
     height: 56px;
     width: 157px;
     background-color: var(--light-Gray);
@@ -396,8 +472,9 @@ button {
     cursor: pointer;
     position: relative;
     opacity: 1; /* Initial opacity for regular appearance */
-    transition: opacity 0.3s ease; /* Add a smooth transition effect */
+    display: block;
   }
+
   .thumbnail img {
     height: 88px;
     width: auto;
