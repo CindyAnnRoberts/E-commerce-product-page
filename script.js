@@ -80,14 +80,13 @@ function decrementQuantity() {
     }
 }
 
-// Function to update the cart icon or count display
 function updateCartCountDisplay() {
     const cartCountElement = document.getElementById('cart-count');
     if (cartCount === 0) {
         cartCountElement.style.display = 'none';
     } else {
         cartCountElement.innerText = cartCount;
-        cartCountElement.style.display = 'block'; // or 'inline' or any other appropriate value
+        cartCountElement.style.display = 'block'; 
     }
 }
 
@@ -96,8 +95,9 @@ function updateCartCountDisplay() {
 function clearCart() {
     // Reset cart count and update the display
     cartCount = 0;
-    document.getElementById('cart-count').innerText = cartCount;
     updateCartCountDisplay();
+
+    // document.getElementById('cart-count').innerText = cartCount;
 
     // Update the empty cart message
     updateEmptyCartMessage();

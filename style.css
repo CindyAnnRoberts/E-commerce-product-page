@@ -197,6 +197,7 @@ header {
   left: 9px;
   cursor: pointer;
 }
+
 button {
   cursor: pointer;
 }
@@ -235,6 +236,9 @@ button {
 /* #cart {
   display: none;
 } */
+#cart-count {
+  display: none;
+}
 
 #cart h3 {
   font-weight: 700;
@@ -267,7 +271,6 @@ button {
   border: 1px solid purple;
   display: flex;
   justify-content: space-between;
-
   position: relative;
 }
 
@@ -288,9 +291,7 @@ h2 {
 img {
   max-width: 100%;
 }
-/* .thumbnail {
-  display: none;
-} */
+
 .thumbnail {
   cursor: pointer;
   position: relative;
