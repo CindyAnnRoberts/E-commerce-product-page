@@ -3,11 +3,9 @@ function toggleNav() {
     const iconClose = document.getElementById('iconClose');
     const topNavLinks = document.getElementById('topNavLinks');
 
+    // Toggle the visibility of hamburgerIcon and iconClose
     iconClose.addEventListener('click', toggleNav);
-
     topNavLinks.classList.toggle('show-links');
-    hamburgerIcon.style.display = topNavLinks.classList.contains('show-links') ? 'none' : 'block';
-    iconClose.style.display = topNavLinks.classList.contains('show-links') ? 'block' : 'none';
 }
 
 function toggleThumbnailsVisibility() {
@@ -39,48 +37,70 @@ function openLightbox(imageSrc, thumbnailSrc, element) {
     element.classList.add('selected');
 }
 
+ // Function to clear the entire cart
+function clearCart() {
+    // Reset cart count and update the display
+    cartCount = 0;
+    document.getElementById('cart-count').innerText = cartCount;
+
+    // Update the empty cart message
+    updateEmptyCartMessage();
+}
+
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     lightbox.style.display = 'none';
 }
-
-
- // Initial cart count and quantity
- let cartCount = 0;
- let quantity = 1;
-
- // Function to increase the quantity
- function incrementQuantity() {
-     quantity++;
-     updateQuantityDisplay( );
- }
-
- // Function to decrease the quantity (with a minimum quantity of 1)
- function decrementQuantity() {
-     if (quantity > 1) {
-         quantity--;
-         updateQuantityDisplay( );
-     }
- }
+// Function to update the empty cart message
+function updateEmptyCartMessage() {
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    emptyCartMessage.innerText = cartCount === 0 ? 'Your cart is empty.' : '';
+}
 
  // Function to update the quantity display
  function updateQuantityDisplay() {
      document.getElementById('quantity').innerText = quantity;
  }
 
- 
- function addToCart() {
-  
+// Initial cart count and quantity
+let cartCount = 0;
+let quantity = 1;
+
+// Function to increase the quantity
+function incrementQuantity() {
+    quantity++;
+    updateQuantityDisplay( );
+}
+
+// Function to decrease the quantity (with a minimum quantity of 1)
+function decrementQuantity() {
+    if (quantity > 1) {
+        quantity--;
+        updateQuantityDisplay( );
+    }
+}
+
+// Function to clear the entire cart
+function clearCart() {
+    // Reset cart count and update the display
+    cartCount = 0;
+    document.getElementById('cart-count').innerText = cartCount;
+}
+
+function addToCart() {
     // Update the cart count based on the current quantity
     cartCount += quantity;
 
     // Update the cart icon or count display
     document.getElementById('cart-count').innerText = cartCount;
 
-    // Update the cart icon 
-    document.getElementById('cart-icon').style.color = 'red';
-
     // Reset the quantity to 1 for the next product
     quantity = 1;
     updateQuantityDisplay();
   }
+
+// Call toggleThumbnailsVisibility on window resize
+window.addEventListener('resize', toggleThumbnailsVisibility);
+
+// Initial call to toggleThumbnailsVisibility
+toggleThumbnailsVisibility();

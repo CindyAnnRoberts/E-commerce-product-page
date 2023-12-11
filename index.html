@@ -22,12 +22,12 @@
                 <!-- Header Section -->
                 <header>
                     <nav id="topNav">
-                        <svg id="hamburgerIcon" width="16" height="15" xmlns="http://www.w3.org/2000/svg"
-                            onclick="toggleNav()">
+                        <svg id="hamburgerIcon" onclick="toggleNav()" width="16" height="15"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D"
                                 fill-rule="evenodd" />
                         </svg>
-
+                        <!-- Close Hamburger -->
                         <svg id="iconClose" width="14" height="15" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
@@ -44,12 +44,11 @@
                             <li>Contact</li>
                         </ul>
 
+                        <!-- Header Avatar and Cart Icon -->
                         <div id="avatarCartContainer">
-
-                            <!-- <div id="cartCounter" class="active" onclick="cartToggle()">0</div> -->
                             <span id="cart-count">0</span>
 
-                            <svg id="headerCart" width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <svg id="cart-icon" width="22" height="20" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
                                     fill-rule="nonzero" />
@@ -115,18 +114,30 @@
                             </button>
                         </div>
                     </div>
-                    <!-- Add the cart element with the 'active' class initially hidden -->
-                    <!-- Delete button must be inside the 'li' element -->
-                    <!-- <div id="cart">
-                        <h3>Cart</h3>
-                        <img src="image/image-product-1-thumbnail.jpg" alt="" height="50" width="50">
-                        <button id="checkout">Checkout</button>
-                    </div> -->
+
 
                     <div id="cart">
-                        <h2>Cart</h2>
+                        <h3>Cart</h3>
+
                         <img src="image/image-product-1-thumbnail.jpg" alt="" height="50" width="50">
+                        <!-- Add a close button to the cart -->
+
+                        <ul id="cart-items">
+                            <li class="cart-list">
+                                <span class="item-name"></span>
+                                <span class="item-price"></span>
+                                <span class="item-quantity"></span>
+                                <span class="item-total"></span>
+                                <span class="material-symbols-outlined deleteCartItem"
+                                    onclick="clearCart()">delete</span>
+                                <!-- Message for an empty cart -->
+                            </li>
+                        </ul>
+
+
+                        <button id="checkout">Checkout</button>
                     </div>
+                    <p id="empty-cart-message" style="color: red;"></p>
                 </article>
 
                 <footer>

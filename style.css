@@ -147,8 +147,10 @@ header {
 #hamburgerIcon {
   margin-right: 16px;
 }
+
+/* Hide iconClose by default */
 #iconClose {
-  display: none; /* Hide iconClose by default */
+  display: none;
 }
 /* Style for mobile navigation links */
 #topNavLinks {
@@ -198,7 +200,7 @@ header {
 button {
   cursor: pointer;
 }
-#headerCart {
+#cart-icon {
   fill: var(--font-color-mediumGray);
 }
 
@@ -230,9 +232,9 @@ button {
   display: inline-block;
 }
 
-#cart.active {
-  visibility: visible;
-}
+/* #cart {
+  display: none;
+} */
 
 #cart h3 {
   font-weight: 700;
@@ -490,9 +492,9 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: gray; /* Adjust the color*/
-    opacity: 0.5; /* Adjust the opacity */
-    pointer-events: none; /* Ensure clicks pass through the overlay to the actual thumbnail */
+    background-color: gray;
+    opacity: 0.5;
+    pointer-events: none;
   }
   .thumbnail.selected {
     opacity: 0.5; /* Reduced opacity for the selected thumbnail */
