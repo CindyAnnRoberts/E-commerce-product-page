@@ -80,18 +80,36 @@ function decrementQuantity() {
     }
 }
 
+// Function to update the cart icon or count display
+function updateCartCountDisplay() {
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCount === 0) {
+        cartCountElement.style.display = 'none';
+    } else {
+        cartCountElement.innerText = cartCount;
+        cartCountElement.style.display = 'block'; // or 'inline' or any other appropriate value
+    }
+}
+
+
 // Function to clear the entire cart
 function clearCart() {
     // Reset cart count and update the display
     cartCount = 0;
     document.getElementById('cart-count').innerText = cartCount;
+    updateCartCountDisplay();
+
+    // Update the empty cart message
+    updateEmptyCartMessage();
 }
 
+// Function to add items to the cart
 function addToCart() {
     // Update the cart count based on the current quantity
     cartCount += quantity;
 
     // Update the cart icon or count display
+    updateCartCountDisplay();
     document.getElementById('cart-count').innerText = cartCount;
 
     // Reset the quantity to 1 for the next product
